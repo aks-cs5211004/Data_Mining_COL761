@@ -187,7 +187,7 @@ def plot_graph(output_path,s_values, time_taken_gspan, time_taken_gaston, time_t
     plt.ylabel("Time Taken (in s)")
     plt.title("Time taken vs Support")
     plt.legend()
-    plt.savefig(f"{output_path}/graph.png")
+    plt.savefig(f"{output_path}/plot.png")
 
 
 if __name__ == "__main__":
@@ -225,10 +225,10 @@ if __name__ == "__main__":
 
 
 
-    #extra writing 
-    os.system(f"touch {output_path}/metadata.txt")
-    with open(f"{output_path}/metadata.txt", "w") as outfile:
-        outfile.write(f"{time_taken_gspan}\n")
-        outfile.write(f"{time_taken_gaston}\n")
-        outfile.write(f"{time_taken_fsg}\n")
+    # #extra writing 
+    # os.system(f"touch {output_path}/metadata.txt")
+    # with open(f"{output_path}/metadata.txt", "w") as outfile:
+    #     outfile.write(f"{time_taken_gspan}\n")
+    #     outfile.write(f"{time_taken_gaston}\n")
+    #     outfile.write(f"{time_taken_fsg}\n")
         

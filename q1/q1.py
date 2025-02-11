@@ -80,7 +80,7 @@ if __name__ == "__main__":
 
     plot_graph(s_values, time_taken_aprori, time_taken_fpgrowth,output_path)
 
-    print(time_taken_aprori)
-    print(time_taken_fpgrowth)
+    # print(time_taken_aprori)
+    # print(time_taken_fpgrowth)
 
     
