@@ -1,7 +1,6 @@
 #!/bin/bash
 
 
-
 echo "Installing required packages..."
 pip install networkx rustworkx numpy joblib scikit-learn
 
@@ -11,5 +10,4 @@ if [ -f "./Binaries/gaston" ]; then
 else
     echo "Warning: gaston binary not found in ./Binaries/"
 fi
-
 echo "Library installation complete."

@@ -4,7 +4,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
-
+import re
 import networkx as nx
 
 
@@ -140,19 +140,27 @@ def main():
     parser.add_argument("graph_file", help="Path to graphs.txt")
     parser.add_argument("labels_file", help="Path to labels.txt") 
     parser.add_argument("output_pattern_file", help="Output pattern file")
-    parser.add_argument("--m", type=int, default=5, help="Minimum pattern size (default 5)")
-    parser.add_argument("--s", type=float, default=0.2, help="Support ratio (default 0.2)") #grid search 
+    parser.add_argument("--m", type=int, default=4, help="Minimum pattern size ")
+    parser.add_argument("--s", type=float, default=0.01, help="Support ratio ") #grid search 
     args = parser.parse_args()
     graphs = read_graphs(args.graph_file)
     labels = read_labels(args.labels_file)
-    
+    if re.search(r"NCI", args.graph_file, re.IGNORECASE):
+        args.m = 5
+        args.s = 0.01 # Note to iterate over args.s and args.m and to choose postive as the lesser guy.
     # Note to iterate over args.s and args.m and to choose postive as the lesser guy.
     # Mutageneicity 4 and 0.01
     # Others 5 and 0.1
     print(f"Read {len(graphs)} graphs and {len(labels)} labels.")
     if len(graphs) != len(labels):
         sys.exit("Error: Number of graphs and labels do not match.")
-    positive_graphs = [g for g, lab in zip(graphs, labels) if lab == "1"]
+    positive_graphs = []
+    one_graphs = [g for g, lab in zip(graphs, labels) if lab == "1"]
+    zero_graphs = [g for g, lab in zip(graphs, labels) if lab == "0"]
+    if(len(one_graphs)<len(zero_graphs)):
+        positive_graphs = one_graphs
+    else:
+        positive_graphs = zero_graphs
     print(f"Total graphs: {len(graphs)}, Positive graphs (label 1): {len(positive_graphs)}")
     min_sup = math.ceil(args.s * len(positive_graphs))
     print(f"Minimum support: {min_sup}, m: {args.m}")
