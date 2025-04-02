@@ -1,0 +1,1 @@
+python3 ./src/solution.py -i $1 -o $2 -k $3 -v $4
