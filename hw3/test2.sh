@@ -1,0 +1,1 @@
+python3 task2_test.py --graph_folder $1 --output_model $2 --predict_output $3
