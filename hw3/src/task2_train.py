@@ -308,7 +308,7 @@ if __name__ == "__main__":
     parser.add_argument('--graph_folder', help='Path to graph data folder')
     parser.add_argument('--output_model', default='../output/model.pt', help='Output model path')
     parser.add_argument('--predict_output', default='../output/predictions.csv', help='Prediction output path')
-    parser.add_argument('--epochs', type=int, default=5, help='Training epochs')
+    parser.add_argument('--epochs', type=int, default=200, help='Training epochs')
     parser.add_argument('--gpu_id', type=int, default=0, help='GPU ID (-1 for CPU)')
     parser.add_argument('--seed', type=int, default=42, help='Random seed')
     args = parser.parse_args()
