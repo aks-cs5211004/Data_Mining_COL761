@@ -222,7 +222,7 @@ def main(args):
     logging.info(f"Using device: {device}")
     
     # Load data with 80:20 split
-    data = load_data(args.graph_folder, test_size=0.2, random_state=args.seed)
+    data = load_data(args.graph_folder, test_size=0.1, random_state=args.seed)
     logging.info(f"Loaded data with {data['user'].num_nodes} users and {data['product'].num_nodes} products")
     logging.info(f"Train set: {data['user'].train_mask.sum().item()} users, Test set: {data['user'].test_mask.sum().item()} users")
     
