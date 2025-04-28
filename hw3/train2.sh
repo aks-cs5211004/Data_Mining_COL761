@@ -1,1 +1,1 @@
-python3 ./src/task2_train.py --graph_folder $1 --output_model $2
+python ./src/train2.py --graph_folder $1 --output_model $2

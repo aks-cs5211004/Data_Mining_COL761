@@ -193,7 +193,7 @@ def main(args):
     ).to(device)
     
     
-    model.load_state_dict(torch.load(args.output_model))
+    model.load_state_dict(torch.load(args.output_model, weights_only = False))
     
     # Generate predictions
     model.eval()
