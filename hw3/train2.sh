@@ -1,1 +1,0 @@
-python3 ./src/task2_train.py --graph_folder $1 --output_model $2
